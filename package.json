@@ -20,6 +20,6 @@
   "homepage": "https://github.com/slyvkanychmykyta/903451-buy-and-sell-3#readme",
   "devDependencies": {
     "eslint": "7.19.0",
-    "eslint-config-htmlacademy": "2.1.0"
+    "eslint-config-htmlacademy": "0.6.0"
   }
 }
