@@ -1,25 +1,23 @@
 {
-  "name": "buy-sell",
+  "name": "buy-and-sell",
   "version": "1.0.0",
-  "description": "* Студент: [Никита Сливканич](https://up.htmlacademy.ru/nodejs/3/user/903451). * Наставник: `Неизвестно`.",
-  "main": "index.js",
+  "description": "Buy. Sell.",
+  "main": "./src/service/service.js",
   "scripts": {
     "test": "npm run eslint",
-    "eslint": "eslint --ext .js src/"
+    "eslint": "eslint --ext .js src/",
+    "start": "node ./src/service/service.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/slyvkanychmykyta/903451-buy-and-sell-3.git"
   },
-  "author": "Slyvkanych Mykyta",
+  "author": "Mykyta Slyvkanych",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/slyvkanychmykyta/903451-buy-and-sell-3/issues"
   },
   "homepage": "https://github.com/slyvkanychmykyta/903451-buy-and-sell-3#readme",
-  "dependencies": {
-    "chalk": "^4.1.0"
-  },
   "devDependencies": {
     "eslint": "7.19.0",
     "eslint-config-htmlacademy": "0.6.0"
