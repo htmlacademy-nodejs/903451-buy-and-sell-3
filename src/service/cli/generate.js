@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require(`fs`);
 const {getRandomInt, shuffle, getPictureFileName} = require(`../../utils`);
 const {
@@ -11,7 +13,6 @@ const {
   PictureRestrict,
 } = require(`../../data`);
 
-'use strict';
 
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
