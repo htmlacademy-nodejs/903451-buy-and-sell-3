@@ -3,7 +3,6 @@
 const fs = require(`fs`);
 const {getRandomInt, shuffle, getPictureFileName} = require(`../../utils`);
 const {
-  DEFAULT_COUNT,
   FILE_NAME,
   TITLES,
   SENTENCES,
@@ -12,6 +11,7 @@ const {
   SumRestrict,
   PictureRestrict,
 } = require(`../../data`);
+const {DEFAULT_COUNT} = require('../../constants');
 
 
 const generateOffers = (count) => (

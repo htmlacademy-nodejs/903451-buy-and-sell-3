@@ -15,4 +15,4 @@ node_modules/
 build/
 
 # mock data
-src/mocks.json
+mocks.json

@@ -4,6 +4,8 @@ module.exports.MAX_DIGIT = 9;
 
 module.exports.DEFAULT_COMMAND = `--help`;
 
+module.exports.DEFAULT_COUNT = 1;
+
 module.exports.USER_ARGV_INDEX = 2;
 
 module.exports.ExitCode = {

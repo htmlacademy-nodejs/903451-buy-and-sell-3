@@ -1,6 +1,5 @@
 'use strict';
 
-const DEFAULT_COUNT = 1;
 const FILE_NAME = `mocks.json`;
 
 
