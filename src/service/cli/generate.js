@@ -11,7 +11,7 @@ const {
   SumRestrict,
   PictureRestrict,
 } = require(`../../data`);
-const {DEFAULT_COUNT} = require('../../constants');
+const {DEFAULT_COUNT, MAX_COUNT} = require('../../constants');
 
 
 const generateOffers = (count) => (
@@ -32,6 +32,10 @@ module.exports = {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
     const content = JSON.stringify(generateOffers(countOffer));
+
+    if (countOffer >= MAX_COUNT) {
+      return console.info(`Not more than 1000 offers`);
+    }
 
     fs.writeFile(FILE_NAME, content, (err) => {
       if (err) {

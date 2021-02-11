@@ -50,7 +50,6 @@ const PictureRestrict = {
 };
 
 module.exports = {
-  DEFAULT_COUNT,
   FILE_NAME,
   TITLES,
   SENTENCES,
