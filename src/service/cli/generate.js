@@ -1,7 +1,16 @@
 'use strict';
 
-const fs = require(`fs`);
-const {getRandomInt, shuffle, getPictureFileName} = require(`../../utils`);
+const {
+  writeFile,
+  stringifyContent,
+  generateCategory,
+  generateDescription,
+  generatePictureName,
+  generateTitle,
+  generateOfferType,
+  generateSum,
+} = require(`../../utils`);
+
 const {
   FILE_NAME,
   TITLES,
@@ -10,18 +19,20 @@ const {
   OfferType,
   SumRestrict,
   PictureRestrict,
+  DescriptionRestrict,
 } = require(`../../data`);
-const {DEFAULT_COUNT, MAX_COUNT} = require('../../constants');
+
+const {DEFAULT_COUNT, MAX_COUNT} = require(`../../constants`);
 
 
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
-    category: [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]],
-    description: shuffle(SENTENCES).slice(1, 5).join(` `),
-    picture: getPictureFileName(getRandomInt(PictureRestrict.MIN, PictureRestrict.MAX)),
-    title: TITLES[getRandomInt(0, TITLES.length - 1)],
-    type: Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)],
-    sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
+    category: generateCategory(CATEGORIES),
+    description: generateDescription(SENTENCES, DescriptionRestrict.MIN, DescriptionRestrict.MAX),
+    picture: generatePictureName(PictureRestrict.MIN, PictureRestrict.MAX),
+    title: generateTitle(TITLES),
+    type: generateOfferType(OfferType),
+    sum: generateSum(SumRestrict.MIN, SumRestrict.MAX),
   }))
 );
 
@@ -31,18 +42,12 @@ module.exports = {
   run(args) {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    const content = JSON.stringify(generateOffers(countOffer));
+    const content = stringifyContent(generateOffers(countOffer));
 
     if (countOffer >= MAX_COUNT) {
       return console.info(`Not more than 1000 offers`);
     }
 
-    fs.writeFile(FILE_NAME, content, (err) => {
-      if (err) {
-        return console.error(`Can't write data to file...`);
-      }
-
-      return console.info(`Operation success. File created.`);
-    });
+    return writeFile(FILE_NAME, content);
   }
 };

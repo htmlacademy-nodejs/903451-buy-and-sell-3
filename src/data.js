@@ -49,6 +49,11 @@ const PictureRestrict = {
   MAX: 16,
 };
 
+const DescriptionRestrict = {
+  MIN: 1,
+  MAX: 5,
+};
+
 module.exports = {
   FILE_NAME,
   TITLES,
@@ -56,5 +61,6 @@ module.exports = {
   CATEGORIES,
   OfferType,
   SumRestrict,
-  PictureRestrict
+  PictureRestrict,
+  DescriptionRestrict,
 };
