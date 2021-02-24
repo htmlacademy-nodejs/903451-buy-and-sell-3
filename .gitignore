@@ -16,3 +16,6 @@ build/
 
 # mock data
 mocks.json
+
+# test request
+request.http
