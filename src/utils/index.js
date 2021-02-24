@@ -4,6 +4,7 @@ const {
   getRandomInt,
   shuffle,
   writeJSONFile,
+  readUTF8Content,
 } = require(`./common`);
 
 const {
@@ -20,6 +21,7 @@ module.exports = {
   getRandomInt,
   shuffle,
   writeJSONFile,
+  readUTF8Content,
   createPictureFileName,
   generateCategory,
   generateDescription,
