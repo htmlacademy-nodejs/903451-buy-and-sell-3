@@ -33,7 +33,10 @@ const writeJSONFile = async (fileName, content) => {
 const readUTF8Content = async (filePath) => {
   try {
     const content = await fs.readFile(path.resolve(__dirname, filePath), UTF8_ENCODING_FORMAT);
-    return content.split(`\n`);
+    if (!content) return [];
+    return content.split(`\n`)
+      .map((line) => line.trim())
+      .filter((line) => !!line);
   } catch (err) {
     console.error(chalk.red(err));
     return [];
