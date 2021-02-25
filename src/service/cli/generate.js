@@ -1,5 +1,7 @@
 'use strict';
 
+const chalk = require(`chalk`);
+
 const {
   writeJSONFile,
   generateCategory,
@@ -38,13 +40,13 @@ const generateOffers = (count) => (
 
 module.exports = {
   name: `--generate`,
-  run(args) {
+  async run(args) {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
     const content = generateOffers(countOffer);
 
     if (countOffer >= MAX_COUNT) {
-      return console.info(`Not more than 1000 offers`);
+      return console.error(chalk.red(`Not more than 1000 offers`));
     }
 
     return writeJSONFile(FILE_NAME, content);
