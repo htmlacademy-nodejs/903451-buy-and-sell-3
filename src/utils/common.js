@@ -39,7 +39,6 @@ const readUTF8Content = async (filePath) => {
       .filter((line) => !!line);
   } catch (err) {
     console.error(chalk.red(err));
-    return [];
   }
 };
 
