@@ -20,7 +20,7 @@ const generatePictureName = (pictureMinNumber, pictureMaxNumber) => {
 };
 
 const generateTitle = (titleList) => {
-  return Array.of(titleList[getRandomInt(0, titleList.length - 1)]);
+  return titleList[getRandomInt(0, titleList.length - 1)];
 };
 
 const generateOfferType = (offerType) => {

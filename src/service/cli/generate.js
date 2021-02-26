@@ -10,28 +10,28 @@ const {
   generateTitle,
   generateOfferType,
   generateSum,
+  readUTF8Content,
 } = require(`../../utils`);
 
 const {
   FILE_NAME,
-  TITLES,
-  SENTENCES,
-  CATEGORIES,
+  FILE_SENTENCES_PATH,
+  FILE_TITLES_PATH,
+  FILE_CATEGORIES_PATH,
   OfferType,
   SumRestrict,
   PictureRestrict,
   DescriptionRestrict,
-} = require(`../../data`);
+  DEFAULT_COUNT,
+  MAX_COUNT,
+} = require(`../../constants`);
 
-const {DEFAULT_COUNT, MAX_COUNT} = require(`../../constants`);
-
-
-const generateOffers = (count) => (
+const generateOffers = (count, titles, categories, sentences) => (
   Array(count).fill({}).map(() => ({
-    category: generateCategory(CATEGORIES),
-    description: generateDescription(SENTENCES, DescriptionRestrict.MIN, DescriptionRestrict.MAX),
+    category: generateCategory(categories),
+    description: generateDescription(sentences, DescriptionRestrict.MIN, DescriptionRestrict.MAX),
     picture: generatePictureName(PictureRestrict.MIN, PictureRestrict.MAX),
-    title: generateTitle(TITLES),
+    title: generateTitle(titles),
     type: generateOfferType(OfferType),
     sum: generateSum(SumRestrict.MIN, SumRestrict.MAX),
   }))
@@ -41,9 +41,15 @@ const generateOffers = (count) => (
 module.exports = {
   name: `--generate`,
   async run(args) {
+    const [titles, categories, sentences] = await Promise.all([
+      readUTF8Content(FILE_TITLES_PATH),
+      readUTF8Content(FILE_CATEGORIES_PATH),
+      readUTF8Content(FILE_SENTENCES_PATH),
+    ]);
+
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    const content = generateOffers(countOffer);
+    const content = generateOffers(countOffer, titles, categories, sentences);
 
     if (countOffer >= MAX_COUNT) {
       return console.error(chalk.red(`Not more than 1000 offers`));
