@@ -17,7 +17,7 @@ const {
   generateSum
 } = require(`./fileGeneration`);
 
-const {onClientConnect} = require(`./server`);
+const {sendResponse} = require(`./server`);
 
 module.exports = {
   getRandomInt,
@@ -31,6 +31,6 @@ module.exports = {
   generateTitle,
   generateOfferType,
   generateSum,
-  onClientConnect,
+  sendResponse,
 };
 
