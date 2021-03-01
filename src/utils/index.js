@@ -17,6 +17,8 @@ const {
   generateSum
 } = require(`./fileGeneration`);
 
+const {sendResponse} = require(`./server`);
+
 module.exports = {
   getRandomInt,
   shuffle,
@@ -28,6 +30,7 @@ module.exports = {
   generatePictureName,
   generateTitle,
   generateOfferType,
-  generateSum
+  generateSum,
+  sendResponse,
 };
 
