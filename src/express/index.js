@@ -2,15 +2,15 @@
 
 const express = require(`express`);
 const {FRONT_CLIENT_PORT} = require(`../constants`);
-const mainRoutes = require(`./routes/main-routes`);
-const myRoutes = require(`./routes/my-routes`);
-const offersRoutes = require(`./routes/offers-routes`);
+const mainRouter = require(`./routes/main.router`);
+const myRouter = require(`./routes/my.router`);
+const offerRouter = require(`./routes/offer.router`);
 
 
 const app = express();
 
-app.use(`/offers`, offersRoutes);
-app.use(`/my`, myRoutes);
-app.use(`/`, mainRoutes);
+app.use(`/offers`, offerRouter);
+app.use(`/my`, myRouter);
+app.use(`/`, mainRouter);
 
 app.listen(FRONT_CLIENT_PORT);
