@@ -9,6 +9,8 @@ const {
   UTF8_ENCODING_FORMAT,
   HOME_PATH,
   NOT_FOUND_MESSAGE_TEXT,
+  PUBLIC_DIR,
+  TEMPLATES_DIR,
   ExitCode,
   HttpCode
 } = require(`./common`);
@@ -34,6 +36,8 @@ module.exports = {
   UTF8_ENCODING_FORMAT,
   HOME_PATH,
   NOT_FOUND_MESSAGE_TEXT,
+  PUBLIC_DIR,
+  TEMPLATES_DIR,
   ExitCode,
   HttpCode,
   DEFAULT_COUNT,

@@ -10,6 +10,9 @@ const UTF8_ENCODING_FORMAT = `utf8`;
 const HOME_PATH = `/`;
 const NOT_FOUND_MESSAGE_TEXT = `Not found`;
 
+const PUBLIC_DIR = `public`;
+const TEMPLATES_DIR = `templates`;
+
 const ExitCode = {
   error: 1,
   success: 0,
@@ -33,6 +36,8 @@ module.exports = {
   UTF8_ENCODING_FORMAT,
   HOME_PATH,
   NOT_FOUND_MESSAGE_TEXT,
+  PUBLIC_DIR,
+  TEMPLATES_DIR,
   ExitCode,
   HttpCode,
 };
